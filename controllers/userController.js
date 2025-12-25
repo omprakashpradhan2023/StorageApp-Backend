@@ -119,6 +119,11 @@ export const login = async (req, res, next) => {
   const sessionExpiryTime = 60 * 1000 * 60 * 24 * 7;
   await redisClient.expire(redisKey, sessionExpiryTime / 1000);
 
+console.log("protocol:", req.protocol);
+console.log("secure:", req.secure);
+console.log("x-forwarded-proto:", req.headers["x-forwarded-proto"]);
+
+
   res.cookie("sid", sessionId, {
     httpOnly: true,
     signed: true,
