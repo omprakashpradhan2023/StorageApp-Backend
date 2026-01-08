@@ -28,7 +28,7 @@ app.use(
 
 
 app.use("/directory", checkAuth, directoryRoutes);
-app.use("/file", checkAuth, fileRoutes);
+app.use("/file", fileRoutes);
 app.use("/subscriptions", checkAuth, subscriptionRoutes);
 app.use("/webhooks", webhookRoutes);
 app.use("/", userRoutes);
